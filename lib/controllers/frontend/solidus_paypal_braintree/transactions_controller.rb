@@ -11,7 +11,7 @@ class SolidusPaypalBraintree::TransactionsController < Spree::StoreController
       :city, :zip, :state_code, :address_line_1, :address_line_2
     ]
   ]
-
+  protect_from_forgery
   def create
     transaction = SolidusPaypalBraintree::Transaction.new transaction_params
     import = SolidusPaypalBraintree::TransactionImport.new(current_order, transaction)
