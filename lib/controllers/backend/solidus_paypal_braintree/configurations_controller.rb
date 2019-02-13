@@ -1,7 +1,7 @@
 module SolidusPaypalBraintree
   class ConfigurationsController < Spree::Admin::BaseController
     helper Spree::Core::Engine.routes.url_helpers
-
+    protect_from_forgery
     def list
       authorize! :list, SolidusPaypalBraintree::Configuration
 

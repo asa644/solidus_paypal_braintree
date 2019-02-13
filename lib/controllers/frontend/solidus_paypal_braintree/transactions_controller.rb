@@ -1,6 +1,6 @@
 class SolidusPaypalBraintree::TransactionsController < Spree::StoreController
   class InvalidImportError < StandardError; end
-
+protect_from_forgery
   PERMITTED_BRAINTREE_TRANSACTION_PARAMS = [
     :nonce,
     :payment_type,
@@ -11,7 +11,6 @@ class SolidusPaypalBraintree::TransactionsController < Spree::StoreController
       :city, :zip, :state_code, :address_line_1, :address_line_2
     ]
   ]
-  protect_from_forgery
   def create
     transaction = SolidusPaypalBraintree::Transaction.new transaction_params
     import = SolidusPaypalBraintree::TransactionImport.new(current_order, transaction)
