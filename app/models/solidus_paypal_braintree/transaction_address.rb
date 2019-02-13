@@ -17,7 +17,7 @@ module SolidusPaypalBraintree
     end
 
     validates :spree_country, presence: true
-    validates :state_code, :spree_state, presence: true, if: :should_match_state_model?
+    validates :state_code, presence: true, if: :should_match_state_model?
 
     def initialize(attributes = {})
       country_name = attributes.delete(:country_name) || ""

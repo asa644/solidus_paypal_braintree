@@ -8,7 +8,7 @@ class SolidusPaypalBraintree::TransactionsController < Spree::StoreController
     :email,
     address_attributes: [
       :country_code, :country_name, :last_name, :first_name,
-      :city, :zip, :address_line_1, :address_line_2
+      :city, :zip, :state_code, :address_line_1, :address_line_2
     ]
   ]
   protect_from_forgery
