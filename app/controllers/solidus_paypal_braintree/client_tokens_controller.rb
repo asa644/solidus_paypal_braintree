@@ -3,7 +3,7 @@ module SolidusPaypalBraintree
     skip_before_action :authenticate_user
 
     before_action :load_gateway
-    protect_from_forgery
+    # protect_from_forgery
     def create
       render json: { client_token: @gateway.generate_token, payment_method_id: @gateway.id }
     end
