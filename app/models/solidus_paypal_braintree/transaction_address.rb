@@ -59,7 +59,7 @@ module SolidusPaypalBraintree
 
     # Check to see if this address should match to a state model in the database
     def should_match_state_model?
-      spree_country.try!(:states_required?)
+      spree_country.try!(false)
     end
   end
 end
