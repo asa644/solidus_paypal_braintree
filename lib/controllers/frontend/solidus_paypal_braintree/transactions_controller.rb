@@ -1,6 +1,6 @@
 class SolidusPaypalBraintree::TransactionsController < Spree::StoreController
   class InvalidImportError < StandardError; end
-  protect_from_forgery
+protect_from_forgery with: :exception, unless: -> { request.format.json? }
   PERMITTED_BRAINTREE_TRANSACTION_PARAMS = [
     :nonce,
     :payment_type,
